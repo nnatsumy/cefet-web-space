@@ -9,3 +9,29 @@ const servidorDasImagens = 'https://fegemo.github.io/cefet-web/images/',
     'philae-67-picture.jpg',
     'philae-collecting.jpg'
   ];
+
+let count = 0;
+
+function proximaImagem(){
+	count++;
+	if(count > todasAsImagens.length-1){
+		count = 0;
+	}
+	document.getElementById('slide').src = servidorDasImagens+todasAsImagens[count];
+}
+
+function imagemAnterior(){
+	count--;
+	if(count < 0){
+		count = todasAsImagens.length-1;
+	}
+	document.getElementById('slide').src = servidorDasImagens+todasAsImagens[count];
+}
+
+let ant = document.getElementById('anterior');
+let prox = document.getElementById('proximo');
+	
+ant.addEventListener('click',imagemAnterior);
+prox.addEventListener('click',proximaImagem);
+
+
